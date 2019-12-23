@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import LeftNavbar from "./LeftNavbar"
-import "bulma"
+import "../static/css/Site.sass"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,9 +28,16 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
 
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <LeftNavbar />
-        <main>{children}</main>
+      <div className="columns is-mobile">
+        <div className="column is-2 is-2-mobile">
+          <LeftNavbar />
+        </div>
+        <div
+          className="column is-10 is-10-mobile is-offset-1-mobile"
+          style={{ paddingTop: "5vh", paddingRight: "2vw" }}
+        >
+          <div className="columns  is-multiline">{children}</div>
+        </div>
       </div>
     </>
   )

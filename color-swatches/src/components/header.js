@@ -13,16 +13,16 @@ const Header = () => (
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        paddingLeft: "2.5vw",
+        paddingRight: "2.5vw",
       }}
     >
       <Link to="/">
         <img src={logo} alt="Logo" />
       </Link>
-      <input
-        type="text"
-        placeholder="Search"
-        style={{ borderRadius: "10px", padding: "5px 10px 5px 15px" }}
-      />
+      <div>
+        <input type="text" placeholder="Search" className="input" />
+      </div>
     </div>
   </header>
 )

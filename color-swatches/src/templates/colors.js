@@ -15,24 +15,28 @@ class CodePostTemplate extends React.Component {
     return (
       <Layout>
         <SEO title={color.frontmatter.fullTitle} />
-        <h1 className="has-text-centered title is-1">
-          {color.frontmatter.fullTitle}
-        </h1>
-        <div
-          style={{
-            height: "10%",
-            width: "25vw",
-            backgroundColor: `#${color.frontmatter.color}`,
-          }}
-        ></div>
-        <br />
-        <br />
-        <div className="is-centered">
-          <p className="has-text-centered">
-            <h3 className="subtitle is-3 has-text-link">
-              <Link to="/">Clear</Link>
-            </h3>
-          </p>
+        <div className="column is-8 is-12-mobile is-offset-2">
+          <div className="box" style={{ border: "solid", borderWidth: "1px" }}>
+            <div className="card-image">
+              <figure
+                className="image is-3by2"
+                style={{
+                  borderRadius: "5px",
+                  backgroundColor: `#${color.frontmatter.color}`,
+                }}
+              ></figure>
+            </div>
+            <div className="card-content">
+              <div className="content">
+                <p>#{color.frontmatter.color}</p>
+              </div>
+            </div>
+          </div>
+          <div className="has-text-centered">
+            <Link to="/">
+              <input type="button" className="button" value="Clear" />
+            </Link>
+          </div>
         </div>
       </Layout>
     )
