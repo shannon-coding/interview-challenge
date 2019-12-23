@@ -24,24 +24,6 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // Create color pages
-    const colors = result.data.colors.edges
-    const colorsPerPage = 12
-    const numPages = Math.ceil(colors.length / colorsPerPage)
-
-    //Array.from({ length: numPages }).forEach((_, i) => {
-    //  createPage({
-    //    path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-    //    component: path.resolve("./src/templates/color-landing.js"),
-    //    context: {
-    //      limit: colorsPerPage,
-    //      skip: i * colorsPerPage,
-    //      numPages,
-    //      currentPage: i + 1,
-    //    },
-    //  })
-    //})
-
     result.data.colors.edges.forEach((color, index) => {
       const previous = index === 0 ? null : result.data.colors[index - 1]
       const next =
@@ -56,6 +38,24 @@ exports.createPages = ({ graphql, actions }) => {
           slug: color.node.fields.slug,
           previous,
           next,
+        },
+      })
+    })
+
+    // Create color pages
+    const colors = result.data.colors.edges
+    const colorsPerPage = 12
+    const numPages = Math.ceil(colors.length / colorsPerPage)
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/` : `/${i + 1}`,
+        component: path.resolve("./src/templates/color-landing.js"),
+        context: {
+          limit: colorsPerPage,
+          skip: i * colorsPerPage,
+          numPages,
+          currentPage: i + 1,
         },
       })
     })
