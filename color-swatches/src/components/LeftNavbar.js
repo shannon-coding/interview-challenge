@@ -1,8 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
 
-import { Router } from "@reach/router"
-
 import { StaticQuery, graphql } from "gatsby"
 
 function LeftNavbar() {
@@ -27,13 +25,15 @@ function LeftNavbar() {
       `}
       render={data => (
         <div
+          className="container"
           style={{
-            paddingTop: "10vh",
-            backgroundColor: "gray",
+            paddingTop: "5vh",
+            backgroundColor: `rgb(214,216,216)`,
             minHeight: "90vh",
+            boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2)`,
           }}
         >
-          <div className="has-text-centered">
+          <div className="container is-fluid">
             <Link
               to={
                 data.allMdx.edges[
@@ -44,56 +44,52 @@ function LeftNavbar() {
               <input
                 type="button"
                 value="Random Color"
-                type="button"
-                className="button"
+                className="button is-size-4"
                 style={{ fontWeight: "bold" }}
               />
             </Link>
           </div>
-          <div className="has-text-centered">
-            <h1 className="is-size-3" style={{ textDecoration: "underline" }}>
-              Common Colors
-            </h1>
-          </div>
-          <div>
-            <Link to="common-colors/red">
-              <p className="is-size-4 is-info">Red</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="common-colors/orange">
-              <p className="is-size-4">Orange</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="common-colors/yellow">
-              <p className="is-size-4">Yellow</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="common-colors/green">
-              <p className="is-size-4">Green</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="common-colors/blue">
-              <p className="is-size-4">Blue</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="common-colors/purple">
-              <p className="is-size-4">Purple</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="common-colors/brown">
-              <p className="is-size-4">Brown</p>
-            </Link>
-          </div>
-          <div>
-            <Link to="common-colors/gray">
-              <p className="is-size-4">Gray</p>
-            </Link>
+          <div className="container is-fluid" style={{ paddingTop: "2vh" }}>
+            <div>
+              <Link to="common-colors/red">
+                <p className="is-size-4">Red</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="common-colors/orange">
+                <p className="is-size-4">Orange</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="common-colors/yellow">
+                <p className="is-size-4">Yellow</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="common-colors/green">
+                <p className="is-size-4">Green</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="common-colors/blue">
+                <p className="is-size-4">Blue</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="common-colors/purple">
+                <p className="is-size-4">Purple</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="common-colors/brown">
+                <p className="is-size-4">Brown</p>
+              </Link>
+            </div>
+            <div>
+              <Link to="common-colors/gray">
+                <p className="is-size-4">Gray</p>
+              </Link>
+            </div>
           </div>
         </div>
       )}

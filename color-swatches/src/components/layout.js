@@ -29,14 +29,14 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
 
       <div className="columns is-mobile">
-        <div className="column is-2 is-2-mobile">
+        <div className="column is-2">
           <LeftNavbar />
         </div>
         <div
-          className="column is-10 is-10-mobile is-offset-1-mobile"
-          style={{ paddingTop: "5vh", paddingRight: "2vw" }}
+          className="column is-offset-1-mobile"
+          style={{ paddingTop: "2.5vh", paddingRight: "2vw" }}
         >
-          <div className="columns  is-multiline">{children}</div>
+          <div className="columns  is-multiline is-centered">{children}</div>
         </div>
       </div>
     </>
