@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
+import RandomColor from "../components/RandomColor"
 
 class ColorLandingTemplate extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class ColorLandingTemplate extends React.Component {
 
     const colors = this.props.data.allMdx.edges.map(color => {
       return (
-        <div className="column is-3 is-10-mobile" key={color.node.id}>
+        <div className="column is-3 is-12-mobile" key={color.node.id}>
           <div className="box">
             <div className="card-image">
               <Link to={color.node.fields.slug}>
@@ -37,6 +38,12 @@ class ColorLandingTemplate extends React.Component {
     return (
       <Layout>
         <SEO title="Home" />
+        <div className="columns has-text-centered">
+          <div className="column is-hidden-desktop is-12-mobile is-12-tablet">
+            <RandomColor data={this.props.data} />
+          </div>
+        </div>
+
         {colors}
         <div
           className="container"

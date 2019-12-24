@@ -28,12 +28,12 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
 
-      <div className="columns is-mobile">
-        <div className="column is-2">
+      <div className="columns">
+        <div className="column is-2-desktop is-hidden-tablet-only is-hidden-mobile ">
           <LeftNavbar />
         </div>
         <div
-          className="column is-offset-1-mobile"
+          className="column is-offset-1-tablet-only"
           style={{ paddingTop: "2.5vh", paddingRight: "2vw" }}
         >
           <div className="columns  is-multiline is-centered">{children}</div>

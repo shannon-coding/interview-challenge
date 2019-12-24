@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 
 import { StaticQuery, graphql } from "gatsby"
+import RandomColor from "../components/RandomColor"
 
 function LeftNavbar() {
   return (
@@ -33,22 +34,7 @@ function LeftNavbar() {
             boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.2)`,
           }}
         >
-          <div className="container is-fluid">
-            <Link
-              to={
-                data.allMdx.edges[
-                  Math.floor(Math.random() * data.allMdx.edges.length)
-                ].node.fields.slug
-              }
-            >
-              <input
-                type="button"
-                value="Random Color"
-                className="button is-size-4"
-                style={{ fontWeight: "bold" }}
-              />
-            </Link>
-          </div>
+          <RandomColor data={data} />
           <div className="container is-fluid" style={{ paddingTop: "2vh" }}>
             <div>
               <Link to="common-colors/red">
